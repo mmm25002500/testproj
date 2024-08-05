@@ -6,7 +6,7 @@ export default function Home() {
     useEffect(() => {
         const loadWasm = async () => {
             try {
-                const wasm = await import('../../public/wasm/rust_wasm.wasm');
+                const wasm = await import('../public/wasm/rust_wasm.wasm');
                 const instance = await WebAssembly.instantiateStreaming(fetch(wasm), {});
                 const { add } = instance.instance.exports;
                 setResult(add(2, 3));
