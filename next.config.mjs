@@ -1,6 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
+export default {
+  webpack: (config) => {
+    config.experiments = {
+      asyncWebAssembly: true,
+      layers: true, // Optional, enable when you use `import` and `export` in wasm
+    };
+    return config;
+  },
 };
 
-export default nextConfig;
